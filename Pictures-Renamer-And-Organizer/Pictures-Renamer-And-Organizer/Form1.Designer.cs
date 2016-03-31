@@ -43,7 +43,7 @@
             this.openPictureButton.Name = "openPictureButton";
             this.openPictureButton.Size = new System.Drawing.Size(107, 23);
             this.openPictureButton.TabIndex = 0;
-            this.openPictureButton.Text = "Open Picture";
+            this.openPictureButton.Text = "Ouvrir une Image";
             this.openPictureButton.UseVisualStyleBackColor = true;
             this.openPictureButton.Click += new System.EventHandler(this.openPictureButton_Click);
             // 

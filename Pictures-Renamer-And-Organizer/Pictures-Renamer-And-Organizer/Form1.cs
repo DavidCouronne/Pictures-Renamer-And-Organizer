@@ -19,6 +19,12 @@ namespace Pictures_Renamer_And_Organizer
 
         private void openPictureButton_Click(object sender, EventArgs e)
         {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                PicturesViewer visualiseur = new PicturesViewer();
+                visualiseur.setImage(openFileDialog1.FileName);
+                visualiseur.Show();
+            }
 
         }
 
