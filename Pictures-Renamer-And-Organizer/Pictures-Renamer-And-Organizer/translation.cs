@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace Goheer
+namespace ExifAnalyseur
 {
 	namespace EXIF
 	{

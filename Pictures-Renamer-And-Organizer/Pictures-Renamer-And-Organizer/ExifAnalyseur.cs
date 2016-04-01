@@ -1,6 +1,6 @@
 ///
-///			http://www.goheer.com
-///			visist goheer.com for latest version of this control
+///			
+///			
 ///
 ///
 
@@ -12,7 +12,7 @@ using System.Reflection;
 using System.IO;
 
 
-namespace Goheer
+namespace ExifAnalyseur
 {
     namespace EXIF
     {

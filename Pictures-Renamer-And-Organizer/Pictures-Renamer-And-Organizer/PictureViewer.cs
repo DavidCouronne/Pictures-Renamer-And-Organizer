@@ -49,8 +49,8 @@ namespace Pictures_Renamer_And_Organizer
             // class. Here "\n" is the newline 
             // that is used to seprate output of two tags. 
             // You can replace it with "," if you want
-            Goheer.EXIF.EXIFextractor er =
-                         new Goheer.EXIF.EXIFextractor(ref bmp, "\n");
+            ExifAnalyseur.EXIF.EXIFextractor er =
+                         new ExifAnalyseur.EXIF.EXIFextractor(ref bmp, "\n");
 
             // now dump all the tags on console
             labelDate.Text = er["Equip Make"].ToString();
