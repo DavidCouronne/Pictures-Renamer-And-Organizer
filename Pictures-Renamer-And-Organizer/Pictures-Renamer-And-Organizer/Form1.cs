@@ -24,13 +24,14 @@ namespace Pictures_Renamer_And_Organizer
                 PicturesViewer visualiseur = new PicturesViewer();
                 visualiseur.setImage(openFileDialog1.FileName);
                 visualiseur.Show();
+                
             }
 
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-
+            
         }
     }
 }
