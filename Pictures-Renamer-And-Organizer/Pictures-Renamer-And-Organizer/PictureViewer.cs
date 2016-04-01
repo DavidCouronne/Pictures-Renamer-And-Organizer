@@ -42,28 +42,14 @@ namespace Pictures_Renamer_And_Organizer
 
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.Load(Filename);
-            System.Drawing.Bitmap bmp =
-             new System.Drawing.Bitmap(Filename);
+            ExifViewer(Filename);
+            
 
-            // create a new instance of Extractor 
-            // class. Here "\n" is the newline 
-            // that is used to seprate output of two tags. 
-            // You can replace it with "," if you want
-            ExifAnalyseur.EXIF.EXIFextractor er =
-                         new ExifAnalyseur.EXIF.EXIFextractor(ref bmp, "\n");
+        }
 
-            // now dump all the tags on console
-            labelDate.Text = er["Equip Make"].ToString();
-
-            // to set a tag you have to specify the tag id
-            // code 0x13B is for artist nam
-            // since this number has ascii string with 
-            // it pass the string you want to set
-           
-
-            // dispose the image here or do whatever you want.
-            //
-
+        private void ExifViewer(string Filename)
+        {
+            richTextBox1.Text = "Rien pour le moment !!! \n Ca marchera un jour ....";
         }
     }
 }
