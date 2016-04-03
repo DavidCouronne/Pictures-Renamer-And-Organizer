@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.openPictureButton = new System.Windows.Forms.Button();
+            this.openPictureViewerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -37,22 +37,22 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // openPictureButton
+            // openPictureViewerButton
             // 
-            this.openPictureButton.Location = new System.Drawing.Point(12, 33);
-            this.openPictureButton.Name = "openPictureButton";
-            this.openPictureButton.Size = new System.Drawing.Size(107, 23);
-            this.openPictureButton.TabIndex = 0;
-            this.openPictureButton.Text = "Ouvrir une Image";
-            this.openPictureButton.UseVisualStyleBackColor = true;
-            this.openPictureButton.Click += new System.EventHandler(this.openPictureButton_Click);
+            this.openPictureViewerButton.Location = new System.Drawing.Point(12, 33);
+            this.openPictureViewerButton.Name = "openPictureViewerButton";
+            this.openPictureViewerButton.Size = new System.Drawing.Size(151, 23);
+            this.openPictureViewerButton.TabIndex = 0;
+            this.openPictureViewerButton.Text = "Ouvrir Visualiseur d\'Image";
+            this.openPictureViewerButton.UseVisualStyleBackColor = true;
+            this.openPictureViewerButton.Click += new System.EventHandler(this.openPictureViewerButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.openPictureButton);
+            this.Controls.Add(this.openPictureViewerButton);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -62,7 +62,7 @@
         #endregion
 
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button openPictureButton;
+        private System.Windows.Forms.Button openPictureViewerButton;
     }
 }
 

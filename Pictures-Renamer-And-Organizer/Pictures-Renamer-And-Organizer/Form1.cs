@@ -17,8 +17,10 @@ namespace Pictures_Renamer_And_Organizer
             InitializeComponent();
         }
 
-        private void openPictureButton_Click(object sender, EventArgs e)
+        private void openPictureViewerButton_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Filter = "JPEG Images (*.jpg)|*.jpg";
+            openFileDialog1.FileName = "";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 PicturesViewer visualiseur = new PicturesViewer();
