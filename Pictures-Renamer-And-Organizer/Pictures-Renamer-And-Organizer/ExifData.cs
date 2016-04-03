@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,9 @@ namespace Pictures_Renamer_And_Organizer
         // Date Time
         public string DateTake
         {
-            get { return Convertisseur(13); }
+            get {
+                
+                return Convertisseur(FindDate()); }
         }
         public string Maker
         {
@@ -42,5 +45,44 @@ namespace Pictures_Renamer_And_Organizer
         {
             get { return Convertisseur(1); }
         }
+
+        private DateTime ConvertisseurDate (string date )
+        {
+            //Si le format de date n'est pas bon, on retourne la date minimale, à tester dans le programme principal
+            if (date.Length < 10)
+            {
+                return DateTime.MinValue;
+            }
+            if (date.Length == 10)
+            {
+                return DateTime.ParseExact(date, "yyyy:MM:dd", CultureInfo.InvariantCulture);
+            }
+
+            return DateTime.ParseExact(date, "yyyy:MM:dd HH:mm:ss", CultureInfo.InvariantCulture);
+            
+        }
+
+        public DateTime DateFormatDate
+        {
+            get { return ConvertisseurDate(Convertisseur(FindDate())); }
+        }
+//La date n'est pas toujours au meme endroit !!!
+        private int FindDate()
+        {
+            int counter = 0;
+            int counter2 = 0;
+            foreach (PropertyItem item in propItems)
+            {
+                if (item.Value.Length == 20 )
+                {if (counter2 != 0) { return counter; }
+                    counter2 = counter2 + 1;
+                }
+                counter = counter + 1;
+
+            }
+            return 0;
+        }
+
+        public int ItemDate { get { return FindDate(); } }
     }
 }
