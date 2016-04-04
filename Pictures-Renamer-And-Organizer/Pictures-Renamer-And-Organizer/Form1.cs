@@ -34,7 +34,7 @@ namespace Pictures_Renamer_And_Organizer
         
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            
+            //
         }
 
         private void simpleRenameButton_Click(object sender, EventArgs e)
