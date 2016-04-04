@@ -56,19 +56,27 @@ namespace Pictures_Renamer_And_Organizer
             // Initilisation 
             ExifData data = new ExifData();
             data.propItems = propItems;
-            richTextBox1.Text = richTextBox1.Text + "\n" + "Date de prise: " + data.DateTake + "   " + data.ItemDate;
+            richTextBox1.Text = richTextBox1.Text + "\n" + "Date de prise: " + data.DateTake ;
             richTextBox1.Text = richTextBox1.Text + "\n" + "Marque de l'appareil: " + data.Maker;
             richTextBox1.Text = richTextBox1.Text + "\n" + "Modèle de l'appareil: " + data.Model;
-            richTextBox1.Text = richTextBox1.Text + "\n" + "Année: " + data.DateFormatDate.Year.ToString();
-            richTextBox1.Text = richTextBox1.Text + "\n" + "Mois: " + data.DateFormatDate.Month.ToString();
-            string newname = Organiser.Simple(Filename);
-            Regex myRegex = new Regex(@"\d\d\d\d-\d\d-\d\d");
-            bool needrename = myRegex.IsMatch(System.IO.Path.GetFileNameWithoutExtension(Filename));
+            DateTime date = data.DateFormatDate;
+            richTextBox1.Text = richTextBox1.Text + "\n" + "Année: " + date.Year.ToString("0000");
+            richTextBox1.Text = richTextBox1.Text + "\n" + "Mois: " + date.Month.ToString("00");
+            string newName = date.Year.ToString("0000") + "-" + date.Month.ToString("00") + "-" + date.Day.ToString("00") + " " + date.Hour.ToString("00") + "h" + date.Minute.ToString("00") + "mn" + date.Second.ToString("00") + "s";
+            richTextBox1.Text = richTextBox1.Text + "\n" + newName;
+            pict.Dispose();
+           
 
-            richTextBox1.Text = richTextBox1.Text + "\n" + "Renommage Simple: " + newname;
-            richTextBox1.Text = richTextBox1.Text  + "Déjà sous le bon format: "+ needrename.ToString();
-            
-            
+            string newname2 = Organiser.Simple(Filename);
+            //Regex myRegex = new Regex(@"\d\d\d\d-\d\d-\d\d");
+            //bool needrename = myRegex.IsMatch(System.IO.Path.GetFileNameWithoutExtension(Filename));
+
+            richTextBox1.Text = richTextBox1.Text + "\n" + "Renommage Simple: " + newname2;
+            bool exist = System.IO.File.Exists(newname2);
+            richTextBox1.Text = richTextBox1.Text + "\n" + exist.ToString();
+            //richTextBox1.Text = richTextBox1.Text  + "Déjà sous le bon format: "+ needrename.ToString();
+
+
         }
         private void closeButton_Click(object sender, EventArgs e)
         {

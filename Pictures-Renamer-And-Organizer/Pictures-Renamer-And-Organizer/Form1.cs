@@ -37,19 +37,37 @@ namespace Pictures_Renamer_And_Organizer
             //
         }
 
-        private void simpleRenameButton_Click(object sender, EventArgs e)
+        private void simpleRenameButton_Click(object sender, EventArgs e)//Bouton de renommage simple
         {
-            FolderBrowserDialog folderBrowserDialogSimple = new FolderBrowserDialog();
-            if (folderBrowserDialogSimple.ShowDialog() == DialogResult.OK)
+            
+            if (folderchoose)
             {
-                string repertoire = folderBrowserDialogSimple.SelectedPath;
-                Organiser.Directory(repertoire);
+                string repertoire = labelFolder.Text;
+                bool createdir = checkBox1.Checked;
+                Organiser.Directory(repertoire,createdir);//On renomme les fichiers du dossier
             }
-                
-
-
+            
         }
 
-        
+        private bool folderchoose;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialogSimple = new FolderBrowserDialog();
+            //On affiche une boite dialogue de sélection de dossier
+            if (folderBrowserDialogSimple.ShowDialog() == DialogResult.OK)
+            {
+               labelFolder.Text= folderBrowserDialogSimple.SelectedPath;
+                folderchoose = true;
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+
+
+    }
+
