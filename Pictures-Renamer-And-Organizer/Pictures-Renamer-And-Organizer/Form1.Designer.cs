@@ -30,6 +30,7 @@
         {
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openPictureViewerButton = new System.Windows.Forms.Button();
+            this.simpleRenameButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -47,11 +48,22 @@
             this.openPictureViewerButton.UseVisualStyleBackColor = true;
             this.openPictureViewerButton.Click += new System.EventHandler(this.openPictureViewerButton_Click);
             // 
+            // simpleRenameButton
+            // 
+            this.simpleRenameButton.Location = new System.Drawing.Point(12, 76);
+            this.simpleRenameButton.Name = "simpleRenameButton";
+            this.simpleRenameButton.Size = new System.Drawing.Size(151, 23);
+            this.simpleRenameButton.TabIndex = 1;
+            this.simpleRenameButton.Text = "Renommage Simple";
+            this.simpleRenameButton.UseVisualStyleBackColor = true;
+            this.simpleRenameButton.Click += new System.EventHandler(this.simpleRenameButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.simpleRenameButton);
             this.Controls.Add(this.openPictureViewerButton);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -63,6 +75,7 @@
 
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button openPictureViewerButton;
+        private System.Windows.Forms.Button simpleRenameButton;
     }
 }
 
