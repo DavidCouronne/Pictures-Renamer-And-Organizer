@@ -2,4 +2,4 @@
 Another Pictures Renamer And Organizer
 
 
-Apache License Version 2.0,  
+License MIT
