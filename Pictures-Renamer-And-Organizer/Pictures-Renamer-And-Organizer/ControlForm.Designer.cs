@@ -36,8 +36,8 @@ namespace Pictures_Renamer_And_Organizer
             this.labelCreateDir = new System.Windows.Forms.Label();
             this.labelDirName = new System.Windows.Forms.Label();
             this.labelSubDirCheck = new System.Windows.Forms.Label();
-            this.buttonStart = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.stopButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -49,7 +49,7 @@ namespace Pictures_Renamer_And_Organizer
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(126, 125);
+            this.button1.Location = new System.Drawing.Point(235, 78);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -93,38 +93,39 @@ namespace Pictures_Renamer_And_Organizer
             this.labelSubDirCheck.TabIndex = 6;
             this.labelSubDirCheck.Text = "Non";
             // 
-            // buttonStart
-            // 
-            this.buttonStart.Location = new System.Drawing.Point(235, 125);
-            this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(75, 23);
-            this.buttonStart.TabIndex = 7;
-            this.buttonStart.Text = "Démarrer";
-            this.buttonStart.UseVisualStyleBackColor = true;
-            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 95);
+            this.label1.Location = new System.Drawing.Point(167, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(10, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = ".";
             // 
+            // stopButton
+            // 
+            this.stopButton.Location = new System.Drawing.Point(111, 78);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(75, 23);
+            this.stopButton.TabIndex = 9;
+            this.stopButton.Text = "STOP";
+            this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
+            // 
             // ControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 160);
+            this.ClientSize = new System.Drawing.Size(331, 117);
+            this.Controls.Add(this.stopButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.labelSubDirCheck);
             this.Controls.Add(this.labelDirName);
             this.Controls.Add(this.labelCreateDir);
             this.Controls.Add(this.labelDossier);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.progressBar1);
+            this.Location = new System.Drawing.Point(100, 100);
             this.Name = "ControlForm";
             this.Text = "Control";
             this.ResumeLayout(false);
@@ -144,7 +145,7 @@ namespace Pictures_Renamer_And_Organizer
         private System.Windows.Forms.Label labelCreateDir;
         private System.Windows.Forms.Label labelDirName;
         private System.Windows.Forms.Label labelSubDirCheck;
-        private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button stopButton;
     }
 }

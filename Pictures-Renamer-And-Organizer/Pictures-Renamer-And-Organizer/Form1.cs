@@ -11,9 +11,13 @@ namespace Pictures_Renamer_And_Organizer
             InitializeComponent();
         }
 
+        
         private void openPictureViewerButton_Click(object sender, EventArgs e)
         {
             PicturesViewer visualiseur = new PicturesViewer();
+            visualiseur.StartPosition = FormStartPosition.CenterParent;
+
+
             visualiseur.Show();//On ouvre le visualiseur d'images
         }
 
@@ -31,7 +35,9 @@ namespace Pictures_Renamer_And_Organizer
                 ControlForm control = new ControlForm();
                 control.currentDirectory = labelFolder.Text;
                 control.Createsubdirectory = checkBox1.Checked;
+                control.StartPosition = FormStartPosition.CenterScreen;
                 control.Show();
+                control.Start();//Démarrer le renommage
             }
 
         }

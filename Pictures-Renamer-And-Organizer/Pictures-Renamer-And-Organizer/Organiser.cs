@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace Pictures_Renamer_And_Organizer
 {
@@ -57,6 +58,28 @@ namespace Pictures_Renamer_And_Organizer
             
         }
 
+        //classe asynchrone
+        public static async Task<int> RenameFileAsync(string currentFile)//Renommage effectif de fichiers !
+        {
+
+            string name = System.IO.Path.GetFileName(currentFile);
+            bool IsdateFormat = dateRegex.IsMatch(System.IO.Path.GetFileNameWithoutExtension(name));
+
+
+            if (IsdateFormat == false) //Si le nom n'est pas déjà sous le bon format
+            {
+                string newname = Simple(currentFile);
+
+                if (currentFile != newname) // Si le "renommage" a réussit
+                {
+                    System.IO.File.Move(currentFile, newname);//On renomme !
+                }
+            }
+            await Task.Delay(1);
+            return 1;
+
+        }
+        //classe qui marche
         public static void RenameFile(string currentFile)//Renommage effectif de fichiers !
         {
             
