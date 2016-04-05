@@ -35,7 +35,6 @@
             this.quitButton = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.openButton1 = new System.Windows.Forms.Button();
-            this.testButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -52,7 +51,6 @@
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.richTextBox1, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.openButton1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.testButton, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -125,16 +123,6 @@
             this.openButton1.UseVisualStyleBackColor = true;
             this.openButton1.Click += new System.EventHandler(this.openButton1_Click);
             // 
-            // testButton
-            // 
-            this.testButton.Location = new System.Drawing.Point(290, 318);
-            this.testButton.Name = "testButton";
-            this.testButton.Size = new System.Drawing.Size(126, 23);
-            this.testButton.TabIndex = 1;
-            this.testButton.Text = "Tester Renommage";
-            this.testButton.UseVisualStyleBackColor = true;
-            this.testButton.Click += new System.EventHandler(this.testButton_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -169,7 +157,6 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button quitButton;
         private System.Windows.Forms.Button openButton1;
-        private System.Windows.Forms.Button testButton;
         private System.Windows.Forms.Label label1;
     }
 }

@@ -11,18 +11,14 @@ namespace Pictures_Renamer_And_Organizer
             InitializeComponent();
         }
 
+        
         private void openPictureViewerButton_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "JPEG Images (*.jpg)|*.jpg";
-            openFileDialog1.FileName = "";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                PicturesViewer visualiseur = new PicturesViewer();
-                visualiseur.setImage(openFileDialog1.FileName);
-                visualiseur.Show();
-                
-            }
+            PicturesViewer visualiseur = new PicturesViewer();
+            visualiseur.StartPosition = FormStartPosition.CenterParent;
 
+
+            visualiseur.Show();//On ouvre le visualiseur d'images
         }
 
         
@@ -33,17 +29,20 @@ namespace Pictures_Renamer_And_Organizer
 
         private void simpleRenameButton_Click(object sender, EventArgs e)//Bouton de renommage simple
         {
-            
+
             if (folderchoose)
             {
-                string repertoire = labelFolder.Text;
-                bool createdir = checkBox1.Checked;
-                Organiser.Directory(repertoire,createdir);//On renomme les fichiers du dossier
+                ControlForm control = new ControlForm();
+                control.currentDirectory = labelFolder.Text;
+                control.Createsubdirectory = checkBox1.Checked;
+                control.StartPosition = FormStartPosition.CenterScreen;
+                control.Show();
+                control.Start();//Démarrer le renommage
             }
-            
+
         }
 
-        private bool folderchoose;
+        private bool folderchoose = false;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -51,8 +50,8 @@ namespace Pictures_Renamer_And_Organizer
             //On affiche une boite dialogue de sélection de dossier
             if (folderBrowserDialogSimple.ShowDialog() == DialogResult.OK)
             {
-               labelFolder.Text= folderBrowserDialogSimple.SelectedPath;
-                folderchoose = true;
+                labelFolder.Text = folderBrowserDialogSimple.SelectedPath;// On met le nom du dossier dans le labelFolder
+                folderchoose = true;//On signale qu'un dossier a bien été choisi
             }
         }
 
@@ -60,8 +59,10 @@ namespace Pictures_Renamer_And_Organizer
         {
 
         }
-    }
 
 
     }
+
+
+}
 
