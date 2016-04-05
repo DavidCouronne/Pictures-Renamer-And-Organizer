@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Pictures_Renamer_And_Organizer;
-using System.Text.RegularExpressions;
 
 namespace Pictures_Renamer_And_Organizer
 {
@@ -64,6 +57,9 @@ namespace Pictures_Renamer_And_Organizer
             richTextBox1.Text = richTextBox1.Text + "\n" + "Mois: " + date.Month.ToString("00");
             string newName = date.Year.ToString("0000") + "-" + date.Month.ToString("00") + "-" + date.Day.ToString("00") + " " + date.Hour.ToString("00") + "h" + date.Minute.ToString("00") + "mn" + date.Second.ToString("00") + "s";
             richTextBox1.Text = richTextBox1.Text + "\n" + newName;
+            var dateTest = pict.GetPropertyItem(0x0132);
+            string datestring = Encoding.ASCII.GetString(dateTest.Value).TrimEnd('\0');
+            richTextBox1.Text = richTextBox1.Text + "\n" + "datestring " + datestring;
             pict.Dispose();
            
 
@@ -76,7 +72,7 @@ namespace Pictures_Renamer_And_Organizer
             richTextBox1.Text = richTextBox1.Text + "\n" + exist.ToString();
             //richTextBox1.Text = richTextBox1.Text  + "Déjà sous le bon format: "+ needrename.ToString();
 
-
+            
         }
         private void closeButton_Click(object sender, EventArgs e)
         {
@@ -102,9 +98,8 @@ namespace Pictures_Renamer_And_Organizer
             this.Close();
         }
 
-        private void testButton_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
+
+        
     }
 }
