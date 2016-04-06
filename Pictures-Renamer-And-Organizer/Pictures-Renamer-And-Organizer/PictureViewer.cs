@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Pictures_Renamer_And_Organizer
@@ -13,25 +14,7 @@ namespace Pictures_Renamer_And_Organizer
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void labelDate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         public void setImage(string Filename)
         {
@@ -41,39 +24,50 @@ namespace Pictures_Renamer_And_Organizer
             ExifViewer(Filename);
         }
 
+        private void LogWriteLigne(string ligne)//Permet d'écrire une ligne dans la richtextbox1
+        {
+            richTextBox1.Text = richTextBox1.Text + "\n" + ligne;
+        }
+
         private void ExifViewer(string Filename)
         {
+            //On décompresse l'image en mémoire pour lecture des données
             Image pict = Image.FromFile(Filename);
             // Récupère les propriétés de l'image
             PropertyItem[] propItems = pict.PropertyItems;
             // Initilisation 
             ExifData data = new ExifData();
-            data.propItems = propItems;
-            richTextBox1.Text = richTextBox1.Text + "\n" + "Date de prise: " + data.DateTake ;
-            richTextBox1.Text = richTextBox1.Text + "\n" + "Marque de l'appareil: " + data.Maker;
-            richTextBox1.Text = richTextBox1.Text + "\n" + "Modèle de l'appareil: " + data.Model;
+            data.propItems = propItems;//on passe les items de propriétés
+
+            //Ecriture dans la richtextbox1
+            LogWriteLigne("===============================");
+            LogWriteLigne("Date de prise: " + data.DateTake);
+            LogWriteLigne("Marque de l'appareil: " + data.Maker);
+            LogWriteLigne("Modèle de l'appareil: " + data.Model);
             DateTime date = data.DateFormatDate;
-            richTextBox1.Text = richTextBox1.Text + "\n" + "Année: " + date.Year.ToString("0000");
-            richTextBox1.Text = richTextBox1.Text + "\n" + "Mois: " + date.Month.ToString("00");
+            LogWriteLigne("Année: " + date.Year.ToString("0000"));
+            LogWriteLigne("Mois: " + date.Month.ToString("00"));
             string newName = date.Year.ToString("0000") + "-" + date.Month.ToString("00") + "-" + date.Day.ToString("00") + " " + date.Hour.ToString("00") + "h" + date.Minute.ToString("00") + "mn" + date.Second.ToString("00") + "s";
-            richTextBox1.Text = richTextBox1.Text + "\n" + newName;
+            LogWriteLigne("Formatage date pour renommage: " +newName);
             var dateTest = pict.GetPropertyItem(0x0132);
             string datestring = Encoding.ASCII.GetString(dateTest.Value).TrimEnd('\0');
-            richTextBox1.Text = richTextBox1.Text + "\n" + "datestring " + datestring;
+            LogWriteLigne("Date retourné par lecture EXIF du 0x0132: " + datestring);
             pict.Dispose();
            
-
+            //Test de la fonction de renommage simple
             string newname2 = Organiser.Simple(Filename);
-            //Regex myRegex = new Regex(@"\d\d\d\d-\d\d-\d\d");
-            //bool needrename = myRegex.IsMatch(System.IO.Path.GetFileNameWithoutExtension(Filename));
+            Regex myRegex = new Regex(@"\d\d\d\d-\d\d-\d\d");
+            bool needrename = myRegex.IsMatch(System.IO.Path.GetFileNameWithoutExtension(Filename));
 
-            richTextBox1.Text = richTextBox1.Text + "\n" + "Renommage Simple: " + newname2;
+            LogWriteLigne( "Renommage Simple: " + newname2);
             bool exist = System.IO.File.Exists(newname2);
-            richTextBox1.Text = richTextBox1.Text + "\n" + exist.ToString();
-            //richTextBox1.Text = richTextBox1.Text  + "Déjà sous le bon format: "+ needrename.ToString();
+            LogWriteLigne( "Le fichier existe déjà ?:"+exist.ToString());
+            LogWriteLigne("Déjà sous le bon format ?: "+ needrename.ToString());
 
             
         }
+
+
         private void closeButton_Click(object sender, EventArgs e)
         {
             pictureBox1.Dispose();

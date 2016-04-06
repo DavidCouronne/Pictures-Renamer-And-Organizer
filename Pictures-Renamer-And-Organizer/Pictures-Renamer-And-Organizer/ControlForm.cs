@@ -119,8 +119,8 @@ namespace Pictures_Renamer_And_Organizer
                }
                return tempCount;
            },ct);
-            
-             
+
+            progress.Report(totalCount); //On mets la barre au maximum: bizarrement parfois elle n'y est pas...
 
             if (createdir)// Si on doit créer des répertoires...
             {
@@ -141,7 +141,7 @@ namespace Pictures_Renamer_And_Organizer
                     }
                 }
             }
-            progression(totalCount); //On mets la barre au maximum: bizarrement parfois elle n'y est pas...
+            
             return 1;
 
         }
